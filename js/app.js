@@ -39,7 +39,7 @@ function render() {
     display.innerText=num1;
   }
   else{
-  display.innerText= num1+" "+operator+" "+num2;
+  display.innerText= `${num1} ${operator} ${num2}`;
 
   }
  
@@ -53,51 +53,41 @@ function setOperator(op) {
   } 
 
  
-function multiNum(num1,num2){
-  console.log(operator)
+function multiNum(){
   operator = "x"
-  total = num1*num2;
-   resNum();
-  
- 
   render();
+ 
 }
 
-function divNum(num1,num2){
+function divNum(){
     operator = "/"
-    total = num1/num2;
-    resNum();
-      
     render();
+     
     }
 
-function addNum(num1,num2){
+function addNum(){
     operator = "+"
-    total = num1+num2;
-    resNum();
+    render();
   
    
-    render();
+
  }
 
- function subNum(num1,num2){
+ function subNum(){
     operator = "-"
-    total =num1-num2;
-    resNum();
-  
-    
-    render();
+    resNum();render();
+   
           }   
 
   function setNum(num){
     
     const number = num.target.innerText;
     if (operator === "") {
-      num1 = number;
+      num1 += number;
       display.innerText = num1;
       console.log(display.innerText)
     } else {
-      num2 = number;
+      num2 += number;
       display.innerText = num2;
     }
     render();
@@ -106,7 +96,25 @@ function addNum(num1,num2){
         
            
 function resNum( ){
+  const n1=Number(num1);
+  const n2 = Number(num2);
 
+  switch(operator) {
+    case "x":
+      total = n1 * n2;
+      break;
+    case "/":
+      total = n1 /n2;
+      break;
+    case "+":
+      total = n1 + n2;
+      break;
+    case "-":
+      total = n1- n2;
+      break;
+    
+  }
+  
   display.innerText = total;
- render();
+
 }
